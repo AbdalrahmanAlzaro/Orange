@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Four</title>
+  </head>
+  <body>
+    <h1>Fill in your information</h1>
+
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Form</legend>
+
+        <label for="firstname">First name:</label><br />
+        <input type="text" id="firstname" name="firstname" /><br /><br />
+
+        <label for="lastname">Last name:</label><br />
+        <input type="text" id="lastname" name="lastname" /><br /><br />
+
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="email" /><br /><br />
+
+        <p><strong>Your Gender</strong></p>
+        <input type="radio" id="male" name="gender" value="male" />
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" />
+        <label for="female">Female</label>
+
+        <br /><br />
+
+        <p><strong>Favorite Subjects</strong></p>
+        <input type="checkbox" id="cpp" name="subjects" value="cpp" />
+        <label for="cpp">C++</label>
+
+        <input type="checkbox" id="java" name="subjects" value="java" />
+        <label for="java">Java</label>
+
+        <input type="checkbox" id="csharp" name="subjects" value="csharp" />
+        <label for="csharp">C#</label>
+
+        <input type="checkbox" id="php" name="subjects" value="php" />
+        <label for="php">PHP</label>
+
+        <input type="checkbox" id="sql" name="subjects" value="sql" />
+        <label for="sql">SQL</label>
+
+        <br /><br />
+
+        <p><strong>Your City</strong></p>
+        <label for="city">City:</label>
+        <select id="city" name="city">
+          <option value="irbid">Irbid</option>
+          <option value="amman">Amman</option>
+          <option value="zarqa">Zarqa</option>
+          <option value="aqaba">Aqaba</option>
+          <option value="petra">Petra</option>
+        </select>
+
+        <br /><br />
+
+        <label for="image">Upload Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" />
+
+        <br /><br />
+
+        <label for="about">Write About yourself:</label><br />
+        <textarea
+          id="about"
+          name="about"
+          rows="5"
+          cols="50"
+          placeholder="Write Here"
+        ></textarea>
+
+        <br /><br />
+
+        <button type="submit">Submit</button>
+      </fieldset>
+    </form>
+  </body>
+</html>

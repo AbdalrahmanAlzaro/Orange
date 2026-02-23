@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Modules</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f4f8;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding: 48px 16px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        color: #1a202c;
+        margin-bottom: 8px;
+      }
+
+      p.subtitle {
+        color: #718096;
+        margin-bottom: 40px;
+        font-size: 1rem;
+      }
+
+      .modules-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        width: 100%;
+        max-width: 900px;
+      }
+
+      .module-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        background-color: #ffffff;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 24px 20px;
+        text-decoration: none;
+        color: #2d3748;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: border-color 0.2s, box-shadow 0.2s, transform 0.1s;
+        cursor: pointer;
+      }
+
+      .module-btn:hover {
+        border-color: #f97316;
+        box-shadow: 0 4px 16px rgba(249, 115, 22, 0.15);
+        transform: translateY(-2px);
+      }
+
+      .module-btn .number {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: #f97316;
+        text-transform: uppercase;
+      }
+
+      .module-btn .title {
+        font-size: 1rem;
+        color: #2d3748;
+      }
+
+      .section-title {
+        font-size: 1.25rem;
+        color: #1a202c;
+        font-weight: 700;
+        width: 100%;
+        max-width: 900px;
+        margin-bottom: 12px;
+        margin-top: 40px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #e2e8f0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HTML Modules</h1>
+    <p class="subtitle">Select a module to open it</p>
+
+    <h2 class="section-title">Modules</h2>
+    <div class="modules-grid">
+      <a class="module-btn" href="html/Module(1).html">
+        <span class="number">Module 1</span>
+        <span class="title">Introduction to Web Development</span>
+      </a>
+      <a class="module-btn" href="html/Module(2).html">
+        <span class="number">Module 2</span>
+        <span class="title">HTML5 Tags &amp; Elements</span>
+      </a>
+      <a class="module-btn" href="html/Module(3).html">
+        <span class="number">Module 3</span>
+        <span class="title">Media and Embedded Content</span>
+      </a>
+      <a class="module-btn" href="html/Module(4).html">
+        <span class="number">Module 4</span>
+        <span class="title">HTML5 Forms &amp; User Input</span>
+      </a>
+      <a class="module-btn" href="html/Module(5).html">
+        <span class="number">Module 5</span>
+        <span class="title">HTML5 Attributes, Block/Inline, and Semantics</span>
+      </a>
+    </div>
+
+    <h2 class="section-title">Tasks</h2>
+    <div class="modules-grid">
+      <a class="module-btn" href="html/tasks/Task1.html">
+        <span class="number">Task 1</span>
+        <span class="title">Task One</span>
+      </a>
+      <a class="module-btn" href="html/tasks/Task2.html">
+        <span class="number">Task 2</span>
+        <span class="title">Task Two</span>
+      </a>
+      <a class="module-btn" href="html/tasks/Task3.html">
+        <span class="number">Task 3</span>
+        <span class="title">Task Three</span>
+      </a>
+      <a class="module-btn" href="html/tasks/Task4.html">
+        <span class="number">Task 4</span>
+        <span class="title">Task Four</span>
+      </a>
+      <a class="module-btn" href="html/tasks/Task5.html">
+        <span class="number">Task 5</span>
+        <span class="title">Task Five</span>
+      </a>
+      <a class="module-btn" href="html/tasks/Task6.html">
+        <span class="number">Task 6</span>
+        <span class="title">Task Six</span>
+      </a>
+      <a class="module-btn" href="html/tasks/Task7.html">
+        <span class="number">Task 7</span>
+        <span class="title">Task Seven</span>
+      </a>
+    </div>
+  </body>
+</html>
