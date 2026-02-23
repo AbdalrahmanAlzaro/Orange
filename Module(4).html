@@ -6,20 +6,9 @@
     <title>Module 4: HTML5 Forms & User Input</title>
   </head>
   <body>
-    <!-- ============================================================ -->
-    <!-- EXERCISE 1: User Registration Form                           -->
-    <!-- Inputs: text, email (required), password, date, file        -->
-    <!-- ============================================================ -->
-
     <h1>User Registration Form</h1>
 
-    <!--
-      - action  → where the form data is sent on submit
-      - method  → "post" sends data in the request body (not visible in URL)
-      We'll cover action/method deeper in Exercise 3.
-    -->
     <form action="#" method="post">
-      <!-- Name — plain text input -->
       <label for="name">Full Name</label><br />
       <input
         type="text"
@@ -28,10 +17,7 @@
         placeholder="Abd al-Rahman Al Zaro"
       /><br /><br />
 
-      <!--
-        Email — type="email" makes the browser validate the format
-        required → browser blocks submit if this field is empty
-      -->
+      <!-- required → browser blocks submit if this field is empty -->
       <label for="email">Email Address *</label><br />
       <input
         type="email"
@@ -41,9 +27,7 @@
         required
       /><br /><br />
 
-      <!--
-        Password — type="password" masks the characters as dots/stars
-      -->
+      <!-- type="password" masks the characters as dots/stars -->
       <label for="password">Password</label><br />
       <input
         type="password"
@@ -52,16 +36,11 @@
         placeholder="••••••••"
       /><br /><br />
 
-      <!--
-        Date — type="date" shows a native date picker in the browser
-      -->
+      <!-- type="date" shows a native date picker in the browser -->
       <label for="dob">Date of Birth</label><br />
       <input type="date" id="dob" name="dob" /><br /><br />
 
-      <!--
-        File — type="file" opens the OS file picker
-        accept=".jpg,.png,.webp" limits which file types the picker shows
-      -->
+      <!-- accept limits which file types the OS picker shows -->
       <label for="avatar">Profile Picture</label><br />
       <input
         type="file"
@@ -70,26 +49,15 @@
         accept=".jpg,.jpeg,.png,.webp"
       /><br /><br />
 
-      <!-- Submit button — triggers form validation before sending -->
       <button type="submit">Register</button>
     </form>
 
     <hr />
 
-    <!-- ============================================================ -->
-    <!-- EXERCISE 2: User Preferences Form                            -->
-    <!-- textarea, select, fieldset + radio buttons, all with labels  -->
-    <!-- ============================================================ -->
-
     <h2>User Preferences</h2>
 
     <form action="#" method="post">
-      <!--
-        textarea — multi-line text input
-        rows → visible height in lines
-        cols → visible width in characters
-        for/id link connects <label> to <textarea> for accessibility
-      -->
+      <!-- rows/cols → control the visible size of the textarea -->
       <label for="about">About Me</label><br />
       <textarea
         id="about"
@@ -100,11 +68,7 @@
       ></textarea
       ><br /><br />
 
-      <!--
-        select — dropdown menu
-        Each <option> has a value (sent to server) and a visible label
-        The first option with value="" acts as a placeholder
-      -->
+      <!-- The first option with value="" acts as a placeholder -->
       <label for="country">Country</label><br />
       <select id="country" name="country">
         <option value="">-- Select your country --</option>
@@ -116,10 +80,8 @@
       ><br /><br />
 
       <!--
-        fieldset — groups related inputs visually and semantically
-        legend  — the title/label for the entire group
-        Radio buttons: only one can be selected at a time within the same name
-        The for attribute on <label> matches the id on <input> — not the name
+        fieldset groups related inputs visually and semantically
+        Radio buttons share the same name so only one can be selected at a time
       -->
       <fieldset>
         <legend>Preferred Contact Method</legend>
@@ -138,28 +100,14 @@
 
     <hr />
 
-    <!-- ============================================================ -->
-    <!-- EXERCISE 3: Form Attributes — action, method, target,        -->
-    <!--             autocomplete                                     -->
-    <!-- ============================================================ -->
-
     <h2>Form Submission Settings</h2>
 
     <!--
-      action="https://example.com/submit"
-        → the URL the browser sends the form data to on submit
-
-      method="post"
-        → data is sent in the request BODY — not visible in the URL
-          swap to method="get" and click submit: you'll see
-          ?email=you%40example.com appear in the address bar
-          GET is for searches/filters; POST is for sensitive data
-
-      target="_blank"
-        → opens the response in a NEW browser tab (same as <a> links)
-
-      autocomplete="off"
-        → tells the browser NOT to suggest saved values for this form
+      action  → URL the browser sends form data to on submit
+      method  → "post" sends data in the request body (not visible in URL)
+                swap to "get" and submit: ?email=... appears in the address bar
+      target="_blank" → opens the response in a new tab
+      autocomplete="off" → browser won't suggest saved values
     -->
     <form
       action="https://example.com/submit"
@@ -179,14 +127,6 @@
       <button type="submit">Submit (POST → new tab)</button>
     </form>
 
-    <!--
-      Try this experiment:
-      1. Change method="post" → method="get"
-      2. Type an email and click submit
-      3. Watch the URL in the new tab — it will show:
-         https://example.com/submit?email=you%40example.com
-      With POST, the email stays hidden in the request body.
-    -->
     <p>
       <em>Experiment:</em> Change <code>method="post"</code> to
       <code>method="get"</code>, submit the form, and watch the URL in the new
@@ -195,19 +135,10 @@
 
     <hr />
 
-    <!-- ============================================================ -->
-    <!-- EXERCISE 4: Survey Form                                      -->
-    <!-- Validation: maxlength, min/max, datalist                    -->
-    <!-- ============================================================ -->
-
     <h2>Survey Form</h2>
 
     <form action="#" method="post">
-      <!--
-        maxlength="10" → browser stops accepting input after 10 characters
-        required       → browser blocks submit if empty
-        Try typing more than 10 characters — the field stops accepting input
-      -->
+      <!-- maxlength="10" → field stops accepting input after 10 characters -->
       <label for="username">Username (max 10 characters) *</label><br />
       <input
         type="text"
@@ -218,12 +149,7 @@
         required
       /><br /><br />
 
-      <!--
-        type="number" → shows a number spinner; rejects non-numeric input
-        min="18"      → browser blocks submit if value is below 18
-        max="60"      → browser blocks submit if value is above 60
-        Try entering 10 or 99 and clicking submit to see validation
-      -->
+      <!-- min/max → browser blocks submit if value is outside the range -->
       <label for="age">Age (18–60)</label><br />
       <input
         type="number"
@@ -235,11 +161,8 @@
       /><br /><br />
 
       <!--
-        datalist → a suggestion dropdown that appears as you type
-        It does NOT force a value from the list — the user can still
-        type anything. It's different from <select> which locks the choice.
-
-        The <input> list attribute must match the <datalist> id exactly.
+        datalist → suggestion dropdown as you type, but doesn't lock the value
+        The input's list attribute must match the datalist id exactly
       -->
       <label for="lang">Favorite Programming Language</label><br />
       <input

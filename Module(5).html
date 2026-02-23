@@ -6,21 +6,11 @@
     <title>Module 5: HTML5 Attributes, Block/Inline, and Semantics</title>
   </head>
   <body>
-    <!-- ============================================================ -->
-    <!-- EXERCISE 1: Global Attributes — href, target, src, alt,     -->
-    <!--             width, height                                    -->
-    <!-- ============================================================ -->
-
     <h1>Attributes in Action</h1>
 
     <!--
-      <a> attributes:
-      - href         → the destination URL
-      - target="_blank" → opens in a NEW browser tab
-      - rel="noopener noreferrer" → security best practice when using
-        target="_blank". Prevents the new tab from accessing the
-        original tab via window.opener (a known security vulnerability).
-      - title        → tooltip shown on hover
+      rel="noopener noreferrer" → security best practice with target="_blank"
+      Prevents the new tab from accessing the original tab via window.opener
     -->
     <a
       href="https://example.com"
@@ -34,20 +24,8 @@
     <br /><br />
 
     <!--
-      <img> attributes:
-      - src    → path or URL to the image file
-      - alt    → REQUIRED for accessibility. Screen readers read this
-                 aloud. If the image fails to load, this text shows.
-                 Try removing alt and use DevTools → Accessibility tab
-                 to see the warning.
-      - width  → display width in pixels (does NOT crop, just scales)
-      - height → display height in pixels
-
-      Experiment:
-        - Change width="300" to width="600" → image scales wider
-        - Set only width and remove height → browser keeps aspect ratio
-        - Set both to wrong proportions → image gets distorted
-        - Remove alt → DevTools Accessibility panel shows a warning
+      alt → required for accessibility; screen readers read this aloud
+      width/height → scale the image (setting both to wrong proportions distorts it)
     -->
     <img
       src="https://picsum.photos/300/200"
@@ -65,17 +43,11 @@
       Accessibility → check the img node to see the warning.
     </p>
 
-    <!-- ============================================================ -->
-    <!-- EXERCISE 2: Block vs Inline — div, span, styling             -->
-    <!-- ============================================================ -->
+    <hr />
 
     <h2>Block vs Inline Elements</h2>
 
-    <!--
-      <div> is BLOCK — starts on its own line, takes full width.
-      The style attribute applies inline CSS directly to this element.
-      Try adding more <div>s below — each one stacks vertically.
-    -->
+    <!-- block → starts on its own line, takes full width -->
     <div style="background-color: #dbeafe; padding: 12px; border-radius: 6px">
       I am a block-level div. I take up the full width of the page and force the
       next element onto a new line.
@@ -88,11 +60,7 @@
 
     <br />
 
-    <!--
-      <span> is INLINE — flows within the text, no line break.
-      Multiple spans sit side by side inside the paragraph.
-      The style attribute changes only the targeted word/phrase.
-    -->
+    <!-- span → inline, flows within text, no line break -->
     <p>
       This is a normal paragraph. The word
       <span style="color: #2563eb; font-weight: bold">inline</span>
@@ -102,10 +70,7 @@
       sitting right next to it.
     </p>
 
-    <!--
-      Challenge: one word is red and bold, everything else flows normally.
-      Only the target word is wrapped in a <span> — the sentence is unbroken.
-    -->
+    <!-- Challenge: one word red and bold, sentence flow unbroken -->
     <p>
       Learning HTML is
       <span style="color: #dc2626; font-weight: bold">essential</span>

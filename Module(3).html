@@ -6,18 +6,13 @@
     <title>Module 3: Media and Embedded Content</title>
   </head>
   <body>
-    <!-- ============================================================ -->
-    <!-- EXERCISE 1: Audio                                            -->
-    <!-- ============================================================ -->
-
     <h2>My Favorite Song</h2>
 
     <!--
-      Audio element 1:
-      - controls   → shows the play/pause/volume bar to the user
-      - autoplay   → starts playing automatically when the page loads
-      - muted      → starts with sound off (required by browsers for autoplay to work)
-      - preload="auto" → browser downloads the full audio file in advance
+      controls   → shows the play/pause/volume bar to the user
+      autoplay   → starts playing automatically when the page loads
+      muted      → required by browsers for autoplay to work
+      preload="auto" → browser downloads the full audio file in advance
 
       Try swapping preload values:
         preload="none"     → browser loads nothing until the user clicks play
@@ -36,12 +31,7 @@
       the difference in how much the browser downloads before you press play.
     </p>
 
-    <!--
-      Audio element 2:
-      - loop → the track restarts automatically when it reaches the end
-      - controls → user can still pause it if they want
-      - preload="metadata" → only loads duration info upfront, saves bandwidth
-    -->
+    <!-- loop → the track restarts automatically when it reaches the end -->
     <audio controls loop preload="metadata">
       <source src="/assets/1.mp4" type="audio/mpeg" />
       Your browser does not support the audio element.
@@ -52,19 +42,11 @@
       the user manually pauses it.
     </p>
 
-    <!-- ============================================================ -->
-    <!-- EXERCISE 2: Video                                            -->
-    <!-- ============================================================ -->
+    <hr />
 
     <h2>My Favorite Video</h2>
 
-    <!--
-      Video element 1 — standard player:
-      - width="400"  → sets the display width in pixels
-      - controls     → shows play/pause, volume, fullscreen controls
-      - poster        → image displayed before the user presses play
-                        (like a thumbnail on YouTube)
-    -->
+    <!-- poster → image displayed before the user presses play (like a YouTube thumbnail) -->
     <video width="400" controls poster="https://picsum.photos/400/225">
       <source src="/assets/DiamondsHomepage.mp4" type="video/mp4" />
       Your browser does not support the video element.
@@ -75,14 +57,7 @@
       playback starts — exactly like a YouTube thumbnail.
     </p>
 
-    <!--
-      Video element 2 — background/looping style:
-      - autoplay → starts playing immediately (no user interaction needed)
-      - muted    → required by browsers to allow autoplay
-      - loop     → restarts when it reaches the end
-      - width    → slightly wider to show the size difference
-      This pattern is commonly used for hero background videos on websites.
-    -->
+    <!-- autoplay muted loop → the pattern used for silent hero background videos -->
     <video
       width="400"
       autoplay
@@ -100,26 +75,20 @@
       require <code>muted</code> for <code>autoplay</code> to work.
     </p>
 
-    <!-- ============================================================ -->
-    <!-- EXERCISE 3: Embedded Content — YouTube + Google Maps         -->
-    <!-- ============================================================ -->
+    <hr />
 
     <h2>Embedded Content</h2>
 
     <!--
-      YouTube iframe:
-      - src         → the embed URL (different from the normal watch URL)
-                      format: https://www.youtube.com/embed/VIDEO_ID
-      - width/height → control the display size; try changing these values
-      - title       → required for accessibility (screen readers read this)
-      - frameborder → set to "0" removes the default border around the iframe
-      - allowfullscreen → lets the user expand the video to fullscreen
+      src format: https://www.youtube.com/embed/VIDEO_ID
+      title → required for accessibility (screen readers read this)
+      allowfullscreen → lets the user expand the video to fullscreen
     -->
     <iframe
       width="560"
       height="315"
-      src="https://www.youtube.com/embed?v=Tt_VoMV8gjY&list=RDTt_VoMV8gjY&start_radio"
-      title="Rick Astley — Never Gonna Give You Up (YouTube embed example)"
+      src="https://www.youtube.com/embed/Tt_VoMV8gjY"
+      title="My Favorite Song"
       frameborder="0"
       allow="
         accelerometer;
@@ -139,12 +108,8 @@
     </p>
 
     <!--
-      Google Maps iframe:
-      - Pointing to Zarqa, Jordan
-      - src format: https://maps.google.com/maps?q=LOCATION&output=embed
-      - width/height → same as YouTube, freely resizable
-      - title        → accessibility label for screen readers
-      - frameborder="0" and style="border:0" → removes all border styling
+      src format: https://maps.google.com/maps?q=LOCATION&output=embed
+      loading="lazy" → waits until the map is near the viewport before loading
     -->
     <iframe
       width="560"
