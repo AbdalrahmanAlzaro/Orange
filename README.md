@@ -4,25 +4,26 @@ A hands-on HTML course built as part of the **Orange Coding School** curriculum.
 
 ## 📚 Modules
 
-| Module   | File                                | Topics                                                                      |
-| -------- | ----------------------------------- | --------------------------------------------------------------------------- |
-| Module 1 | `index.html`                        | HTML structure, elements, headings, paragraphs, formatting, block vs inline |
-| Module 2 | `module2.html`                      | Meta tags, comments, text formatting, `<pre>`, `<hr>`                       |
-| Module 3 | `media.html`                        | Audio, video, iframes (YouTube & Google Maps)                               |
-| Module 4 | `forms.html`                        | Form inputs, textarea, select, fieldset, validation                         |
-| Module 5 | `attributes.html` · `semantic.html` | Global attributes, block/inline, semantic HTML5, ARIA                       |
+| Module   | File             | Topics                                                                      |
+| -------- | ---------------- | --------------------------------------------------------------------------- |
+| Module 1 | `Module(1).html` | HTML structure, elements, headings, paragraphs, formatting, block vs inline |
+| Module 2 | `Module(2).html` | Meta tags, comments, text formatting, `<pre>`, `<hr>`                       |
+| Module 3 | `Module(3).html` | Audio, video, iframes (YouTube & Google Maps)                               |
+| Module 4 | `Module(4).html` | Form inputs, textarea, select, fieldset, validation                         |
+| Module 5 | `Module(5).html` | Global attributes, block/inline, semantic HTML5, ARIA                       |
 
 ## 🗂️ File Structure
 
 ```
-orange/
-├── index.html
-├── module2.html
-├── media.html
-├── forms.html
-├── attributes.html
-├── semantic.html
-├── style.css
+Orange/
+├── assets/
+│   ├── 1.mp4
+│   └── DiamondsHomepage.mp4
+├── Module(1).html
+├── Module(2).html
+├── Module(3).html
+├── Module(4).html
+├── Module(5).html
 └── README.md
 ```
 
