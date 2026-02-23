@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 4: HTML5 Forms & User Input</title>
+  </head>
+  <body>
+    <!-- ============================================================ -->
+    <!-- EXERCISE 1: User Registration Form                           -->
+    <!-- Inputs: text, email (required), password, date, file        -->
+    <!-- ============================================================ -->
+
+    <h1>User Registration Form</h1>
+
+    <!--
+      - action  → where the form data is sent on submit
+      - method  → "post" sends data in the request body (not visible in URL)
+      We'll cover action/method deeper in Exercise 3.
+    -->
+    <form action="#" method="post">
+      <!-- Name — plain text input -->
+      <label for="name">Full Name</label><br />
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Abd al-Rahman Al Zaro"
+      /><br /><br />
+
+      <!--
+        Email — type="email" makes the browser validate the format
+        required → browser blocks submit if this field is empty
+      -->
+      <label for="email">Email Address *</label><br />
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="you@example.com"
+        required
+      /><br /><br />
+
+      <!--
+        Password — type="password" masks the characters as dots/stars
+      -->
+      <label for="password">Password</label><br />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="••••••••"
+      /><br /><br />
+
+      <!--
+        Date — type="date" shows a native date picker in the browser
+      -->
+      <label for="dob">Date of Birth</label><br />
+      <input type="date" id="dob" name="dob" /><br /><br />
+
+      <!--
+        File — type="file" opens the OS file picker
+        accept=".jpg,.png,.webp" limits which file types the picker shows
+      -->
+      <label for="avatar">Profile Picture</label><br />
+      <input
+        type="file"
+        id="avatar"
+        name="avatar"
+        accept=".jpg,.jpeg,.png,.webp"
+      /><br /><br />
+
+      <!-- Submit button — triggers form validation before sending -->
+      <button type="submit">Register</button>
+    </form>
+
+    <hr />
+
+    <!-- ============================================================ -->
+    <!-- EXERCISE 2: User Preferences Form                            -->
+    <!-- textarea, select, fieldset + radio buttons, all with labels  -->
+    <!-- ============================================================ -->
+
+    <h2>User Preferences</h2>
+
+    <form action="#" method="post">
+      <!--
+        textarea — multi-line text input
+        rows → visible height in lines
+        cols → visible width in characters
+        for/id link connects <label> to <textarea> for accessibility
+      -->
+      <label for="about">About Me</label><br />
+      <textarea
+        id="about"
+        name="about"
+        rows="4"
+        cols="40"
+        placeholder="Tell us a bit about yourself..."
+      ></textarea
+      ><br /><br />
+
+      <!--
+        select — dropdown menu
+        Each <option> has a value (sent to server) and a visible label
+        The first option with value="" acts as a placeholder
+      -->
+      <label for="country">Country</label><br />
+      <select id="country" name="country">
+        <option value="">-- Select your country --</option>
+        <option value="jo">Jordan</option>
+        <option value="sa">Saudi Arabia</option>
+        <option value="ae">United Arab Emirates</option>
+        <option value="eg">Egypt</option>
+        <option value="us">United States</option></select
+      ><br /><br />
+
+      <!--
+        fieldset — groups related inputs visually and semantically
+        legend  — the title/label for the entire group
+        Radio buttons: only one can be selected at a time within the same name
+        The for attribute on <label> matches the id on <input> — not the name
+      -->
+      <fieldset>
+        <legend>Preferred Contact Method</legend>
+
+        <input type="radio" id="contact-email" name="contact" value="email" />
+        <label for="contact-email">Email</label>
+        <br />
+
+        <input type="radio" id="contact-phone" name="contact" value="phone" />
+        <label for="contact-phone">Phone</label>
+      </fieldset>
+      <br />
+
+      <button type="submit">Save Preferences</button>
+    </form>
+
+    <hr />
+
+    <!-- ============================================================ -->
+    <!-- EXERCISE 3: Form Attributes — action, method, target,        -->
+    <!--             autocomplete                                     -->
+    <!-- ============================================================ -->
+
+    <h2>Form Submission Settings</h2>
+
+    <!--
+      action="https://example.com/submit"
+        → the URL the browser sends the form data to on submit
+
+      method="post"
+        → data is sent in the request BODY — not visible in the URL
+          swap to method="get" and click submit: you'll see
+          ?email=you%40example.com appear in the address bar
+          GET is for searches/filters; POST is for sensitive data
+
+      target="_blank"
+        → opens the response in a NEW browser tab (same as <a> links)
+
+      autocomplete="off"
+        → tells the browser NOT to suggest saved values for this form
+    -->
+    <form
+      action="https://example.com/submit"
+      method="post"
+      target="_blank"
+      autocomplete="off"
+    >
+      <label for="form3-email">Email Address *</label><br />
+      <input
+        type="email"
+        id="form3-email"
+        name="email"
+        placeholder="you@example.com"
+        required
+      /><br /><br />
+
+      <button type="submit">Submit (POST → new tab)</button>
+    </form>
+
+    <!--
+      Try this experiment:
+      1. Change method="post" → method="get"
+      2. Type an email and click submit
+      3. Watch the URL in the new tab — it will show:
+         https://example.com/submit?email=you%40example.com
+      With POST, the email stays hidden in the request body.
+    -->
+    <p>
+      <em>Experiment:</em> Change <code>method="post"</code> to
+      <code>method="get"</code>, submit the form, and watch the URL in the new
+      tab — the email value will appear directly in the address bar.
+    </p>
+
+    <hr />
+
+    <!-- ============================================================ -->
+    <!-- EXERCISE 4: Survey Form                                      -->
+    <!-- Validation: maxlength, min/max, datalist                    -->
+    <!-- ============================================================ -->
+
+    <h2>Survey Form</h2>
+
+    <form action="#" method="post">
+      <!--
+        maxlength="10" → browser stops accepting input after 10 characters
+        required       → browser blocks submit if empty
+        Try typing more than 10 characters — the field stops accepting input
+      -->
+      <label for="username">Username (max 10 characters) *</label><br />
+      <input
+        type="text"
+        id="username"
+        name="username"
+        maxlength="10"
+        placeholder="e.g. abdrahman"
+        required
+      /><br /><br />
+
+      <!--
+        type="number" → shows a number spinner; rejects non-numeric input
+        min="18"      → browser blocks submit if value is below 18
+        max="60"      → browser blocks submit if value is above 60
+        Try entering 10 or 99 and clicking submit to see validation
+      -->
+      <label for="age">Age (18–60)</label><br />
+      <input
+        type="number"
+        id="age"
+        name="age"
+        min="18"
+        max="60"
+        placeholder="25"
+      /><br /><br />
+
+      <!--
+        datalist → a suggestion dropdown that appears as you type
+        It does NOT force a value from the list — the user can still
+        type anything. It's different from <select> which locks the choice.
+
+        The <input> list attribute must match the <datalist> id exactly.
+      -->
+      <label for="lang">Favorite Programming Language</label><br />
+      <input
+        type="text"
+        id="lang"
+        name="lang"
+        list="languages"
+        placeholder="Start typing..."
+      />
+      <datalist id="languages">
+        <option value="HTML" />
+        <option value="CSS" />
+        <option value="JavaScript" />
+        <option value="TypeScript" />
+        <option value="Python" />
+        <option value="Rust" /></datalist
+      ><br /><br />
+
+      <button type="submit">Submit Survey</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 3: Media and Embedded Content</title>
+  </head>
+  <body>
+    <!-- ============================================================ -->
+    <!-- EXERCISE 1: Audio                                            -->
+    <!-- ============================================================ -->
+
+    <h2>My Favorite Song</h2>
+
+    <!--
+      Audio element 1:
+      - controls   → shows the play/pause/volume bar to the user
+      - autoplay   → starts playing automatically when the page loads
+      - muted      → starts with sound off (required by browsers for autoplay to work)
+      - preload="auto" → browser downloads the full audio file in advance
+
+      Try swapping preload values:
+        preload="none"     → browser loads nothing until the user clicks play
+        preload="metadata" → browser loads only duration/size info, not the full file
+        preload="auto"     → browser downloads the whole file immediately
+    -->
+    <audio controls autoplay muted preload="auto">
+      <source src="/assets/1.mp4" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <p>
+      <em>Note on preload:</em><br />
+      Change <code>preload="auto"</code> to <code>preload="metadata"</code> or
+      <code>preload="none"</code> and open the Network tab in DevTools to see
+      the difference in how much the browser downloads before you press play.
+    </p>
+
+    <!--
+      Audio element 2:
+      - loop → the track restarts automatically when it reaches the end
+      - controls → user can still pause it if they want
+      - preload="metadata" → only loads duration info upfront, saves bandwidth
+    -->
+    <audio controls loop preload="metadata">
+      <source src="/assets/1.mp4" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <p>
+      This second audio element uses <code>loop</code> — it plays forever until
+      the user manually pauses it.
+    </p>
+
+    <!-- ============================================================ -->
+    <!-- EXERCISE 2: Video                                            -->
+    <!-- ============================================================ -->
+
+    <h2>My Favorite Video</h2>
+
+    <!--
+      Video element 1 — standard player:
+      - width="400"  → sets the display width in pixels
+      - controls     → shows play/pause, volume, fullscreen controls
+      - poster        → image displayed before the user presses play
+                        (like a thumbnail on YouTube)
+    -->
+    <video width="400" controls poster="https://picsum.photos/400/225">
+      <source src="/assets/DiamondsHomepage.mp4" type="video/mp4" />
+      Your browser does not support the video element.
+    </video>
+
+    <p>
+      The <code>poster</code> attribute sets a thumbnail image shown before
+      playback starts — exactly like a YouTube thumbnail.
+    </p>
+
+    <!--
+      Video element 2 — background/looping style:
+      - autoplay → starts playing immediately (no user interaction needed)
+      - muted    → required by browsers to allow autoplay
+      - loop     → restarts when it reaches the end
+      - width    → slightly wider to show the size difference
+      This pattern is commonly used for hero background videos on websites.
+    -->
+    <video
+      width="400"
+      autoplay
+      muted
+      loop
+      poster="https://picsum.photos/400/225?grayscale"
+    >
+      <source src="/assets/DiamondsHomepage.mp4" type="video/mp4" />
+      Your browser does not support the video element.
+    </video>
+
+    <p>
+      This second video uses <code>autoplay muted loop</code> — the combination
+      used for silent looping background videos on modern websites. Browsers
+      require <code>muted</code> for <code>autoplay</code> to work.
+    </p>
+
+    <!-- ============================================================ -->
+    <!-- EXERCISE 3: Embedded Content — YouTube + Google Maps         -->
+    <!-- ============================================================ -->
+
+    <h2>Embedded Content</h2>
+
+    <!--
+      YouTube iframe:
+      - src         → the embed URL (different from the normal watch URL)
+                      format: https://www.youtube.com/embed/VIDEO_ID
+      - width/height → control the display size; try changing these values
+      - title       → required for accessibility (screen readers read this)
+      - frameborder → set to "0" removes the default border around the iframe
+      - allowfullscreen → lets the user expand the video to fullscreen
+    -->
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed?v=Tt_VoMV8gjY&list=RDTt_VoMV8gjY&start_radio"
+      title="Rick Astley — Never Gonna Give You Up (YouTube embed example)"
+      frameborder="0"
+      allow="
+        accelerometer;
+        autoplay;
+        clipboard-write;
+        encrypted-media;
+        gyroscope;
+        picture-in-picture;
+      "
+      allowfullscreen
+    ></iframe>
+
+    <p>
+      Try changing <code>width="560"</code> to <code>width="800"</code> or
+      <code>width="300"</code> and notice how the iframe resizes. The video
+      content inside scales to fill whatever size you set.
+    </p>
+
+    <!--
+      Google Maps iframe:
+      - Pointing to Zarqa, Jordan
+      - src format: https://maps.google.com/maps?q=LOCATION&output=embed
+      - width/height → same as YouTube, freely resizable
+      - title        → accessibility label for screen readers
+      - frameborder="0" and style="border:0" → removes all border styling
+    -->
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.google.com/maps?q=Zarqa,Jordan&output=embed"
+      title="Google Maps — Zarqa, Jordan"
+      frameborder="0"
+      style="border: 0"
+      allowfullscreen
+      loading="lazy"
+    ></iframe>
+
+    <p>
+      This iframe embeds Google Maps pointing to Zarqa, Jordan. The
+      <code>loading="lazy"</code> attribute tells the browser to wait until the
+      map is near the viewport before loading it — good for performance.
+    </p>
+  </body>
+</html>
